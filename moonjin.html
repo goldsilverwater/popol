@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> new document </title>
+ <style type="text/css">
+	*{margin:0; padding:0;}
+	li{list-style-type:none;}
+	.redSquare > li{list-style-image:url("img/redsquare.png");}
+	.blackSquare > li{list-style-image:url("img/listform.png");}
+	h3{color:#C11017; font-size:25px;}
+	hr{border:1px solid #000;}
+	h2{font-size:30px; font-weight:600; padding-top:20px;}
+
+	#bg{width:100%; height:100%; background-image:url("img/main_bg.png"); background-repeat:no-repeat; background-size:cover; position:fixed; left:0; top:0;}	
+	#bg_img{width:100%; height:350px; background-image:url("img/sub_bg.png"); background-repeat:no-repeat; background-position:center; background-size:contain; position:fixed; left:-20px; top:25%;}
+	#bg_pattern{width:100%; height:100%; background-image:url("img/bgPattern.png"); position:fixed; left:0; top:0;}
+	#paper{width:925px; background-color:#fff; margin:0 auto; position:relative; padding:0 40px; box-shadow: 10px 0px 5px rgba(0,0,0,0.5);}
+	#paperHeader{overflow:hidden;height:100px;}
+	#paperLogo{float:left;margin-top:30px;}
+	#tryAgain{float:right;margin-top:30px;}
+	
+	.redSquare > li{margin-top:50px; margin-left:40px;}
+	.blackSquare{border:2px solid #F6E5D2; border-radius:5px; background-color:#FFFAF4; padding:30px 0;margin-top:10px;}
+	.blackSquare li{margin-left:50px;font-size:17px; padding:7px;}
+	#startBtnArea{text-align:center; padding:50px 0;}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$("#tryAgain > a").bind("mouseover focus",function(){
+				$(this).children("img").attr("src","img/tryAgain2.png");
+				}).bind("mouseout blur",function(){
+				$(this).children("img").attr("src","img/tryAgain.png");
+		});
+		$("#moonginStart > a").bind("mouseover focus",function(){
+				$(this).children("img").attr("src","img/startBtn2.png");
+				}).bind("mouseout blur",function(){
+				$(this).children("img").attr("src","img/startBtn.png");
+		});
+	});
+</script>
+ </head>
+ <body>
+		<div id="bg"></div>
+		<div id="bg_img"></div>
+		<div id="bg_pattern"></div>
+		<div id="paper">
+			<div id="paperHeader">
+				<p id="paperLogo"><img src="img/paperLogo.png" alt="전자문진 로고"/></p>
+				<p id="tryAgain"><a href="#" title="다시 시작"><img src="img/tryAgain.png" alt="처음부터 다시 시작하기"/></a></p>
+			</div>
+			<div id="paperCpntents">
+				<hr/>
+				<h2>헌혈 자격 조건</h2>
+				<ul class="redSquare">
+					<li>
+						<h3>나이</h3>
+						<ul class="blackSquare">
+							<li>전혈 헌혈 : 만 16 ~ 69세</li>
+							<li>혈장 성분헌혈 : 만 17 ~ 69세</li>
+							<li>혈소판 성분헌혈, 혈소판혈장 성분헌혈 : 만 17 ~ 59세</li>
+						</ul>
+					</li>
+					<li>
+						<h3>체중</h3>
+						<ul class="blackSquare">
+							<li>남자 50kg 이상</li>
+							<li>여자 45kg 이상(단, 50kg 미만은 전혈 400mL 불가)</li>
+						</ul>
+					</li>
+					<li>
+						<h3>건강진단</h3>
+						<ul class="blackSquare">
+							<li>혈압(mmHg) : 수축기 90이상179이하, 이완기 99이하</li>
+							<li>체온(℃) : 37.5℃ 이하</li>
+							<li>맥박(회/분) : 50이상 100이하</li>
+						</ul>
+					</li>
+					<li>
+						<h3>질병</h3>
+						<ul class="blackSquare">
+							<li>발열,인후통,설사 등 급성 감염성 질환 증상이 없어진지 3일경과</li>
+							<li>A형간염,결핵,인플루엔자(신종,조류포함)감염병,쯔쯔가무시병 등 완치 후 1개월 경과</li>
+							<li>기타 감염병 및 질병 완치 후 일정기간 경과</li>
+						</ul>
+					</li>
+					<li>
+						<h3>약물</h3>
+						<ul class="blackSquare">
+							<li>항생제(주사포함),스테로이드(주사포함).보톡스(주사),지방분해 주사제 7일경과</li>
+							<li>건선 치료제 복용 후 3년 경과(일부는 영구 헌혈금지)</li>
+							<li>태반주사제 1년 경과</li>
+							<li>전립선비대증 치료제 복용 후 1개월 또는 6개월 경과</li>
+							<li>남성탈모증 치료제 복용 후 1개월 경과</li>
+							<li>여드름 치료제 복용 후 1개월 경과</li>
+							<li>기타 헌혈금지약물 복용 후 일정기간 경과</li>
+						</ul>
+					</li>
+					<li>
+						<h3>예방접종</h3>
+						<ul class="blackSquare">
+							<li>인플루엔자, A형간염, 일본뇌염,자궁경부암 등 예방접종 후 24시간 경과</li>
+							<li>B형 간염 예방접종 후 3주 경과</li>
+							홍역, 유행성이하선염, 풍진(MMR)의 혼합백신, 상처 후 파상풍 등 예방접종 후 1개월 경과</li>
+							<li>B형 간염 면역글로불린,동물에게 물린 후 광견병 예방접종 후 1년 경과</li>
+						</ul>
+					</li>
+					<li>
+						<h3>진료</h3>
+						<ul class="blackSquare">
+							<li>임신ㆍ분만ㆍ유산 후 6개월 </li>
+							<li>수혈 후 1년 경과</li>
+							<li>기타 진료 후 일정기간 경과</li>
+						</ul>
+					</li>
+					<li>
+						<h3>검사결과</h3>
+						<ul class="blackSquare">
+							<li>과거 헌혈검사(B형간염, C형간염,인간 T림프 바이러스,매독검사 등) 결과 정상 </li>
+						</ul>
+					</li>
+					<li>
+						<h3>헌혈간격</h3>
+						<ul class="blackSquare">
+							<li>전혈헌혈 : 2개월 </li>
+							<li>혈장성분헌혈, 두단위 혈소판성분헌혈, 혈소판혈장성분헌혈 : 14일 경과</li>
+						</ul>
+					</li>
+					<li>
+						<h3>기타</h3>
+						<ul class="blackSquare">
+							<li>1개월 이내 외국 여행 무 경험자 </li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="startBtnArea">
+				<p id="moonginStart">
+					<a href="#" title="전자문진 시작하기">
+						<img src="img/startBtn.png" alt="전자문진 시작하기"/>
+					</a>
+				</p>
+			</div>
+		</div>			
+ </body>
+</html>

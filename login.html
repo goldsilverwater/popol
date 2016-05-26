@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> new document </title>
+
+ <style type="text/css">
+	/*##### 초기값 #####*/
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		a:link, a:visited{text-decoration:none; color:#3B3B3B;}
+		a:hover, a:focus{color:#CC2127;}
+		body,#allWrap,#sns,#nav,#main,#footer{margin:0; padding:0;}
+		img{border:none;}
+	/*##### allWrap #####*/
+		#allWrap{width:1200px; margin: 20px auto; background-color:#FBFBFB; border:1px solid #ccc; overflow:hidden;}
+	/*##### sns #####*/
+		#sns{width:100%; height:40px;}
+		#snsNavBottom{width:100%; height:10px;background-color:#CC2127;position:relative;}
+		#inSnsNavBottom{width:100%; height:10px;}
+		#leftPadding{width:35px; height:30px; position:absolute; left:0 ;top:-30px; background-color:#FBFBFB;}
+		#snsNav{width:100%; height:30px; background-color:#FBFBFB;  margin:0;padding:0; position:relative;}
+		#snsImg{ display:block; width:100%; height:100% ;text-align:center; background-color:#FBFBFB; position:relative; margin:0;padding:0; border:none;}
+		#snsImg li{display:inline-block; height:100%; position:absolute; }	
+	/*-----sns 슬라이딩BAR-----*/	
+		#blog{background-color:#3fa32f; left:-965px; top:0px; width:1050px;  z-index:3;}
+		#face{background-color:#7ea2e0; left:-945px; top:0px;  width:1080px; z-index:2; }
+		#kakao{background-color:#ffea00; left:-895px; top:0px; width:1060px; z-index:1; }
+	/*-----each Text Area-----*/	
+		#blogText{width:1000px; height:30px;float:left;}
+		#blogText p a{display:none;}
+		#faceText,#kakaoText{width:1030px; height:30px;float:left; }
+		#faceText a,#kakaoText a{display:none;}
+	/*-----each Btn-----*/	
+		#kakaoBtn,#faceBtn, #blogBtn{float:left; width:30px; height:30px; cursor:pointer; position:relative;}
+		#kakaoBtn img,#faceBtn img, #blogBtn img{width:30px; display:block; z-index:1;}
+		#blog:after, #face:after, #kakao:after{content:""; display:block; clear:both;}
+	
+		#blogBtn{background-image:url("img/blog1.jpg"); background-repeat:no-repeat; background-size:30px; background-position:center;}
+		#blogBtn a img{position:absolute; left:0; top:0; display:none;}
+		#faceBtn{background-image:url("img/faceBook1.jpg"); background-repeat:no-repeat; background-size:30px; background-position:center;}
+		#faceBtn a img{position:absolute; left:0; top:0; display:none;}
+		#kakaoBtn{background-image:url("img/kakaoStory1.jpg"); background-repeat:no-repeat; background-size:30px; background-position:center;}
+		#kakaoBtn a img{position:absolute; left:0; top:0; display:none;}
+	/*-----each Text Area contents-----*/	
+		/*_____블로그____*/
+			#blogLink{width:800px; height:30px; margin-left: 165px;}
+			#blogLink p{display:block;text-align:center;}
+			#blogP1{width:200px; height:30px; float:left; text-align:center; padding-left:20px;}
+			#blogP1 a img{width:140px; height:30px;}
+			#blogP2{width:580px; height:30px; float:left;}
+			#blogP2 a{display:block; line-height:30px; letter-spacing:2px; color:#fff; font-weight:bold;}
+			#blogP2 a:hover,#blogP2 a:focus{color:#f6f9c9;}
+			#blogP2 a:hover img,#blogP2 a:focus img{display:block;}
+			#blogP2 a span{display:block; float:left; padding-left:15px; }
+			#blogP2span{margin-left:25px; width:110px; height:30px; padding-top:3px; background-image:url("img/blogtext1.png"); background-repeat:no-repeat; background-position:15px 3px;}
+			#blogP2 a img{width:110px; display:none;}
+			#rightPadding1{width:20px; height:30px; background-color:#FBFBFB; float:left;}
+		/*_____페이스북_____*/
+			#faceLink{width:800px; height:30px; margin-left: 115px; float:left;}
+			#faceP1{width:210px; height:30px;float:left; text-align:right; background-image:url("img/facebook1.png"); background-repeat:no-repeat; background-position:95px 0px;
+			background-size:90px 30px;}
+			#faceP1:hover a img{display:block;}
+			#faceP1 a:focus img{display:block;}
+			#faceP1 a img{width:90px; height:30px; margin-left:95.5px; display:none;}
+			#faceP2{width:590px; height:30px;line-height:30px;  text-align:left; letter-spacing:2px; float:left;}
+			#faceP2 a{color:#fff; font-weight:bold;}
+			#faceP2 a:hover,#faceP2 a:focus{color:#8f101c;}
+			#faceP2 a img{height:30px; vertical-align:top; padding-left:20px; }
+			#rightPadding2{width:20px; height:30px; background-color:#FBFBFB; float:right;}
+		/*_____카카오스토리_____*/
+			#kakaoLink{width:800px; height:30px; margin-left:95px; background-color:gold; float:left;}
+			#kakaoP1{width:100px; height:30px;  float:left; text-align:right;}	
+			#kakaoP1 a img{width:30px; height:30px;}
+			#kakaoP2{width:670px; height:30px;float:left; line-height:30px;}
+			#kakaoP2 a{color:#CC2127; font-weight:bold;}
+			#kakaoP2 a:hover,#kakaoP2 a:focus{color:#fff;}
+			#kakaoP2 a span{display:block; height:30px;  float:left; margin-left:25px;}
+			#kakaoP2 a img{ height:30px;}
+			
+			#leftPadding1{width:36px; height:30px; background-color:#FBFBFB; position:absolute; left:0; top:0;z-index:4}	
+	/*##### nav #####*/
+		#nav{width:199px; height:820px; float:left;}
+		#nav h1{width:100%; height:159px; float:left;}
+		#nav h1 img{width:100%; height:100%;}
+	/*----- logWrap -----*/
+		#logWrap {width:100%; height:60px;}
+		#logWrap:after{content:""; display:block; clear:both;}
+		#logWrap a{color:#fff; font-size:0.9em; display:inline-block; width:98px; height:100%; text-align:center; line-height:60px;}
+		#redArea{float:left; border-right:3px solid #fff; background-color:#CC2127;}
+		#redArea:hover,#redArea:focus{background-color:#DC6468; font-size:1em;}
+		#grayArea{ clear:both;  background-color:#5E6263;}
+		#grayArea:hover,#grayArea:focus{background-color:#A3A9AA; font-size:1em;}
+	/*----- mainNav -----*/
+		#mainNav{padding:0 25px; background-color:#FBFBFB; margin-top:5px; margin-bottom:5px;}
+		.navLine{width:100%; border-bottom:1px solid #ccc;}
+		.mainNavBtn{display:inline-block;width:150px; height:55px;line-height:55px;font-weight:bold; font-size:17px;}
+		.mainNavBtn:hover .hoverSelect,.mainNavBtn:focus .hoverSelect{background-color:#e8e8e8; color:#3B3B3B;}
+		.hoverSelect{display:block; width:150px; height:55px; text-indent:10px;}
+		.subNav{padding:10px 0;}
+		.subNav > li{width:100%; height:25px; font-size:14px; text-indent:15px;}
+		.subNav > li a:hover,.subNav > li a:focus{font-weight:bold; font-size:15px;}
+		.leftArrow{font-size:5px;}
+	/*##### topSiteLocation #####*/
+		#topSiteLocation{width:1000px; height:159px; background-image:url("img/topBg.png"); float:left;}
+		#siteLocation{width:725px; height:100%; float:left; position:relative;}
+		#siteLocation > h2{ display:inline-block; position:absolute; left:70px; top:65px; font-size:30px; color:#fff;}
+		#siteLocationNav{width:400px; position:absolute; left:70px; top:40px; padding-left:4px;}
+		#siteLocationNav li{display:inline-block;}
+		#siteLocationNav li a:link,#siteLocationNav li a:visited{font-size:15px; color:white;}
+		#siteLocationNav li a:hover,#siteLocationNav li a:focus{text-decoration:underline;font-weight:bold; font-size:15px;}
+		#siteLocationNav li span{padding-left:7px; text-align:center;}
+
+		#topRightImg{width:275px; height:100%; float:left;}	
+	/*##### quickNav #####*/
+		#quickNav{width:1000px; height:60px; float:left; position:relative;  overflow:hidden;}
+		#quick{width:100px; height:60px; position:absolute; left:0; top:0; text-align:center; background-color:#fbfbfb;z-index:2;cursor:pointer;}
+		#quick > p{display:block; font-size:20px; position:absolute; font-weight:bold; left:22px; top:14px; color:#b6b6b6;}
+		.DC6468{color:#DC6468;}
+		#quick > img{width:80px; margin-top:12px;}
+		#qNav{width:900px; height:60px; position:absolute; left:100px; z-index:1;}
+		#qNav > ul{width:900px; height:20px; margin-top:17px;}
+		#qNav > ul > li{display:inline-block; height:20px; position:relative;}
+		#qNav > ul > li > a:link,#qNav > ul > li > a:visited{font-size:14px; color:#bbb; position:relative;}
+		#qNav > ul > li > a:hover,#qNav > ul > li > a:focus{font-weight:bold; color:#5E6263;}
+		#qNav > ul > li > a:hover > span,#qNav > ul > li > a:focus > span{display:block;}
+		#qNav > ul > li  > a >.navLineBar{width:90%; height:6px; background-color:#5E6263; position:absolute; left:0; top:35px; display:none;}
+		#qNav > ul >  li  > a > .navLineBar2{width:90%; height:6px; background-color:#5E6263; position:absolute; left:0; top:35px;display:none;}
+		#qNav > ul >  li  > a > .navLineBar3{width:100%; height:6px; background-color:#5E6263; position:absolute; left:0; top:35px; display:none;}	
+	/*##### loginArea #####*/ 
+		#loginArea{width:1000px;background-color:#fff; position:relative;float:left;padding-top:50px; }
+		#loginArea:after{content:""; display:block; clear:both;}
+		#loginHeader h1{text-align:center; margin-bottom:50px; margin-top:10px; }
+		#loginHeader > p{text-align:center; font-weight:bold; color:#5E6263; font-size:14px; margin-bottom:30px;}
+		#loginInput1{width:590px;margin:0 auto; border-top:5px solid #C82129; border-bottom:5px solid #5E6263;padding:30px 0; padding-right:20px; }
+		#textInput{float:left;}
+		#textInput > label{display:inline-block;width:100px; text-align:right;margin-right:10px;color:#5E6263; font-weight:bold; font-size:14px; }
+		#textInput > input{height:30px; border-radius:5px; width:330px; margin-bottom:4px;}
+		#loginSubmit:after{content:""; display:block; clear:both;}
+		#loginSubmit > input{height:70px; background-color:#C82129; color:#fff; font-weight:bold; text-align:center; border:none; border-radius:5px;width:100px; font-size:17px; margin-left:10px;}
+		
+		#loginInput2{height:30px; margin-top:30px; text-align:center;}
+		#loginInput2 > label{margin-right:30px; font-weight:bold; color:#5E6263; font-size:14px; line-height:14px;vertical-align:middle;}
+		#loginInput2 > input{vertical-align:bottom;}
+		#loginInput2 > a{display:inline-block;font-weight:bold; color:#5E6263; font-size:14px; line-height:14px; padding-top:3px;vertical-align:middle;}
+		#cautionArea{width:590px;margin:0 auto; height:300px;}
+		#cautionArea h3{color:#C82129; font-size:16px; padding:20px 0;  border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin-top:25px;}
+		#cautionArea h3:after{content:""; display:block; clear:both;}
+		#cautionArea h3 > p{float:left; margin-left:10px; vertical-align:middle;line-height:16px;}
+		#cautionArea ul{margin-top:10px; padding-left:37px; border-bottom:1px solid #ccc;}
+		#cautionArea ul li{color:#5E6263; font-size:14px; margin:10px 0; list-style-image:url("img/disc.png");}
+
+	/*##### footer #####*/
+		#footer{width:100%; height:200px; border-top:1px solid #ccc; float:left; }
+		#footer:after{content:""; display:block; clear:both;}
+		#footerNav{width:100%; height:40px; font-size:13px; line-height:40px; text-align:center; border-bottom:1px solid #ccc;}
+		#footerNav a:hover,#footerNav a:focus{color:#CC2127; font-weight:bold; text-decoration:underline;}
+		.heightLine{margin:0 8px;}
+	/*----- footerMain -----*/
+		#footerMain{width:100%; height:160px; margin-top:50px;}
+		#footerLogo,#banner{width:15%; float:left; text-align:center;}
+		#footerTextArea{width:70%; height:100%;float:left; color:#3B3B3B; font-size:0.8em; }
+		#footerTextArea p{padding-left:20px; margin-left:100px; display:block;  width:500px; float:left;}
+		#footerTextArea img{width:80px;}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+<script>
+</script>
+<script type="text/javascript">
+		//--------sns main Nav htmlText change---------	
+			function inner(){
+				if ($("#sns").css("display")=="none")
+					{document.getElementById("SnsTopBtns").innerHTML = 'S N S (ON)';}	
+					else if ($("#sns").css("display")!="none"){document.getElementById("SnsTopBtns").innerHTML = 'S N S (OFF)';}
+					}
+	jQuery(document).ready(function(){		
+		//--------sns main Nav---------
+			$("#sns").hide();
+			$("#SnsTopBtn").click(function(){
+			if ($("#sns").css("display")=="none")
+			{$("#sns").slideDown();}	
+			else if ($("#sns").css("display")!="none"){$("#sns").slideUp(); }
+			});
+		//--------snsNav---------
+			$("#blogBtn, #blogBtn a").bind("mouseover focus",function(){
+				$("#bBtn2").css("display","block");
+				$("#snsNavBottom").css("backgroundColor","#28522c")
+			}).bind("mouseout blur",function(){
+				$("#bBtn2").css("display","none");
+				$("#snsNavBottom").css("backgroundColor","#CC2127")
+			}).click(function(){
+				if ($("#blog").css("left")=="-965px")
+				{
+				$("#blogText a").css("display","block");
+				$("#faceText a,#kakaoText a").css("display","none");
+				$("#blog").animate({left: '35px'}, 300);
+				$("#face").animate({left: '55px'}, 300);
+				$("#kakao").animate({left: '105px'}, 300);
+				$("#bBtn1").css("display","block");
+				$("#fBtn1,#kBtn1").css("display","none");
+				$("#rightPadding1").css("backgroundColor","#FBFBFB");
+				$("#rightPadding2").css("backgroundColor","#FBFBFB");
+				$("#inSnsNavBottom").css("backgroundColor","#28522c");
+				}
+				else if($("#blog").css("left")=="35px")
+				{
+				$("#blogText a").css("display","block");
+				$("#faceText a").css("display","block")
+				$("#blog").animate({left: '-965px'}, 300);
+				$("#bBtn1").css("display","none");
+				$("#fBtn1").css("display","block");
+				$("#rightPadding1").css("backgroundColor","#7ea2e0");
+				$("#inSnsNavBottom").css("backgroundColor","#233966");
+				$("#blogBtn").removeClass("back1");
+				}
+			});
+
+			$("#faceBtn, #faceBtn>a").bind("mouseover focus",function(){
+				$("#fBtn2").css("display","block");
+				$("#snsNavBottom").css("backgroundColor","#233966")
+			}).bind("mouseout blur",function(){
+				$("#fBtn2").css("display","none");
+				$("#snsNavBottom").css("backgroundColor","#CC2127")
+			}).click(function(){
+				if ($("#face").css("left")=="-945px")
+				{
+				$("#faceText a").css("display","block");
+				$("#blogBtn p a,#kakaoText a").css("display","none");
+				$("#blog").animate({left: '-965px'}, 300);
+ 				$("#face").animate({left: '55px'}, 300);
+				$("#kakao").animate({left: '105px'}, 300);
+				$("#fBtn1").css("display","block");
+				$("#bBtn1,#kBtn1").css("display","none");
+				$("#rightPadding1").css("backgroundColor","#7ea2e0");
+				$("#rightPadding2").css("backgroundColor","#FBFBFB");
+				$("#inSnsNavBottom").css("backgroundColor","#233966");
+				}
+				else if($("#face").css("left")=="55px")
+				{
+				$("#faceText a, #blogBtn p a").css("display","none");
+				$("#kakaoText a").css("display","block");
+				$("#blog").animate({left: '-965px'}, 300);
+				$("#face").animate({left: '-945px'}, 300);				
+				$("#bBtn1,#fBtn1").css("display","none");
+				$("#kBtn1").css("display","block");
+				$("#rightPadding1").css("backgroundColor","#FBFBFB");
+				$("#rightPadding2").css("backgroundColor","#ffea00");
+				$("#inSnsNavBottom").css("backgroundColor","#e46340");				
+				}
+			});
+			
+			$("#kakaoBtn, #kakaoBtn > a").bind("mouseover focus",function(){
+				$("#kBtn2").css("display","block");
+				$("#snsNavBottom").css("backgroundColor","#e46340")
+			}).bind("mouseout blur",function(){
+				$("#kBtn2").css("display","none");
+				$("#snsNavBottom").css("backgroundColor","#CC2127")
+			}).click(function(){
+				if ($("#kakao").css("left")=="-895px")
+				{
+				$("#kakaoText a").css("display","block");
+				$("#blogText a,#faceText a").css("display","none");
+				$("#blog").animate({left: '-965px'}, 300);
+ 				$("#face").animate({left: '-945px'}, 300);
+				$("#kakao").animate({left: '105px'}, 300);
+				$("#kBtn1").css("display","block");
+				$("#bBtn1, fBtn1").css("display","none");
+				$("#rightPadding2").css("backgroundColor","#ffea00");
+				$("#inSnsNavBottom").css("backgroundColor","#e46340");
+				}
+				else if($("#kakao").css("left")=="105px")
+				{
+				$("#kakaoText a,#blogText a,#faceText a").css("display","none");
+				$("#blog").animate({left: '-965px'}, 300);
+ 				$("#face").animate({left: '-945px'}, 300);
+				$("#kakao").animate({left: '-895px'}, 300);
+				$("#bBtn1,#fBtn1,#kBtn1").css("display","none");
+				$("#rightPadding1").css("backgroundColor","#FBFBFB");
+				$("#rightPadding2").css("backgroundColor","#FBFBFB");
+				$("#inSnsNavBottom").css("backgroundColor","");
+				}
+			});
+		//--------logoBtnHover---------
+			$("#nav > h1 > a").bind("mouseover focus",function(){
+				$(this).children("img").attr("src","img/logo2.png");
+				}).bind("mouseout blur",function(){
+				$(this).children("img").attr("src","img/logo.png");
+			});
+		//--------mainNav---------		
+			$(".navLine > a").click(function(){	
+			$(".mainNavBtn").css({"backgroundColor":"#FBFBFB","color":"#3B3B3B"});
+					$(this).css({"backgroundColor":"#e8e8e8","color":"#3B3B3B"});
+					$(".subNav  > li > a").click(function(){
+						$(this).parents(".navLine").children("a").css({"backgroundColor":"#e8e8e8","color":"#3B3B3B"});
+					});
+			$(this).css({"color":"#3B3B3B"});			
+			});
+		//--------QuickNav---------
+			$("#quick > p").click(function(){
+				if ($("#qNav").css("left")=="100px"){
+					$("#qNav").animate({left: '-1000px'}, 500);
+					$("#quick > img").attr("src","img/quick2.png");
+					$("#quick > p").css("color","#DC6468");}
+				
+				else if ($("#qNav").css("left")!="100px")
+				{$("#qNav").animate({left: '100px'}, 500);
+					$("#quick > img").attr("src","img/quick.png");
+					$("#quick > p").css("color","#b6b6b6");}
+			}).bind("mouseover focus",function(){
+				$("#quick > img").attr("src","img/quick2.png");
+					$("#quick > p").css("color","#DC6468");
+			}).bind("mouseout blur",function(){
+				$("#quick > img").attr("src","img/quick.png");
+					$("#quick > p").css("color","#b6b6b6");
+			});
+});
+</script>
+ </head>
+
+ <body>
+	<div id="allWrap">
+		<div id="sns">
+			<div id="snsNav">
+				<ul id="snsImg">
+					<li id="blog">
+						<div id="blogText">
+							<div id="blogLink">
+								<p id="blogP1">
+									<a href="#" title="블로그 링크1"><img src="img/blog1.png" alt="블로그 바로가기"/> </a>
+								</p>
+								<p id="blogP2">
+									<a href="#" title="블로그 링크2"><span>" 대한 적십자사 혈액 관리본부 공식 블로그 "</span><span id="blogP2span"><img src="img/blogtext2.png" alt="블로그 바로가기"/> </span></a>
+								</p>
+							</div>
+						</div>
+						<div id="blogBtn">
+							<a href="#" title="#"><img id="bBtn1" src="img/blog.png" alt="블로그"/><img id="bBtn2" src="img/blog0.png" alt="블로그"/></a>
+						</div>
+						<div id="rightPadding1">
+						</div>
+					</li>
+					<li id="face">
+						<div id="faceText">
+							<div id="faceLink">
+								<p id="faceP1">
+									<a href="#" title="페이스북 링크1"><img src="img/facebook2.png" alt="페이스북 바로가기"/> </a>
+								</p>
+								<p id="faceP2">
+									<a href="#" title="페이스북 2"><span> "좋아요4만 (헌혈) 대한적십자사 혈액관리본부 공식 페이스북 " <img src="img/facebook3.png" alt="페이스북 바로가기"/> </span></a>
+								</p>
+							</div>
+						</div>
+						<div id="faceBtn">
+							<a href="#" title="#"><img id="fBtn1" src="img/faceBook.png" alt="페이스북"/><img id="fBtn2" src="img/faceBook0.png" alt="페이스북"/></a>
+						</div>
+						<div id="rightPadding2">
+						</div>
+					</li>
+					<li id="kakao">
+						<div id="kakaoText">
+							<div id="kakaoLink">
+								<p id="kakaoP1">
+										<a href="#" title="카카오스토리 링크1"><img src="img/kakaoStory1.png" alt="카카오스토리 바로가기"/> </a>
+								</p>
+								<p id="kakaoP2">
+										<a href="#" title="카카오스토리 링크 2"><span>" 헌혈로 소통하고, 나를 채우는 혈액 관리본부 공식 스토리 " </span><span id="kakaoP2span"><img src="img/kakaostory2.png" alt="카카오스토리 바로가기"/> </span></a>
+								</p>
+							</div>					
+						</div>
+						<div id="kakaoBtn">
+							<a href="#" title="#"><img id="kBtn1" src="img/kakaoStory.png" alt="카카오스토리"/>
+							<img id="kBtn2" src="img/kakaoStory0.png" alt="카카오스토리"/></a>
+						</div>
+					</li>
+				</ul>
+				<div id="leftPadding1">
+				</div>
+			</div>
+			<div id="snsNavBottom">
+			<div id="leftPadding"></div>
+			<div id="inSnsNavBottom"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<h1><a href="index.html" title="메인페이지 바로가기"><img src="img/logo.png" alt="한마음 혈액원 로고"/></a></h1>
+			<div id="logWrap">
+				<a href="#" title="#" id="redArea">로그인</a>
+				<a href="#" title="#"  id="grayArea">회원가입</a>
+			</div>
+			<ul id="mainNav">
+				<li class="navLine" id="SnsTopBtn" onclick="inner();">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect" id="SnsTopBtns">S N S</span></a>
+				</li>
+				<li class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">회원가입</span></a>
+				</li>
+				<li  class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">로그인</span></a>
+				</li>
+				<li class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">ID/PW 찾기</span></a>
+				</li>
+			</ul>
+		</div>
+		<div id="topSiteLocation">
+			<div id="siteLocation">
+				<ul  id="siteLocationNav">
+					<li><a href="#" title="#"><img src="img/home.png" alt="home"/></a><span><img src="img/arrow.png" alt="우측방향 화살표"/></span></li>
+					<li><a href="#" title="#">한마음알림이</a><span><img src="img/arrow.png" alt="우측방향 화살표"/></span></li>
+					<li><a href="#" title="#">혈액원소개</a><span><img src="img/arrow.png" alt="우측방향 화살표"/></span></li>
+					<li><a href="#" title="#">인사말</a></li>
+				</ul>
+				<h2>인사말</h2>
+			</div>
+			<div id="topRightImg">
+				<img src="img/topRight.png" alt="의사와 간호사"/>
+			</div>
+		</div>
+		<div id="quickNav">
+			<div id="quick">
+				<p>Quick</p>
+				<img src="img/quick.png" alt="퀵메뉴"/>
+			</div>
+			<div id="qNav">
+				<ul>
+					<li><a href="#" title="#">질문과답변&nbsp;</span><span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></li>
+					<li><a href="#" title="#">헌혈&nbsp;<span class="navLineBar2"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">나의헌혈정보&nbsp;<span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">이벤트&nbsp;<span class="navLineBar2"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">기부권&nbsp;<span class="navLineBar2"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">헌혈카페&nbsp;<span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">등록헌혈제안내&nbsp;<span class="navLineBar3"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">헌혈서포터즈&nbsp;<span class="navLineBar3"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">자원봉사&nbsp;<span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">자진배제, 혈액사용 보류신청&nbsp;<span class="navLineBar3"></a></span></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="loginArea">
+			<div id="loginHeader">
+				<h1><img src="img/loginText.png" alt="한마음혈액원 홈페이지를 방문해 주셔서 감사합니다.!"/></h1>
+				<p>
+					한마음혈액원은 고객님의 정보를 소중하게 생각합니다.<br/>
+					일부 서비스는 로그인 후 이용 가능합니다.
+				</p>
+			</div>
+			<div>
+				<form action="#" method="#">
+					<div id="loginInput1">
+						<div id="textInput">
+							<label for="userid">아이디</label><input type="text" id="userid" name="userid"/><br/>
+							<label for="userpw">비밀번호</label><input type="password" id="userpw" name="userpw"/>
+						</div>
+						<div id="loginSubmit">
+							<input type="submit" id="loginBtn" value="로그인"/>
+						</div>
+					</div>
+					<div id="loginInput2">
+						<input type="checkbox" id="checkbox1" name="checkbox1"/> <label for="checkbox1">아이디 저장하기</label>
+						<a href="#" title="아이디, 비밀번호 찾기">아이디/비밀번호찾기</a>
+						<a href="#" title="회원가입">회원가입</a>
+					</div>
+				</form>
+			</div>
+			<div id="cautionArea">
+				<h3>
+					<p><img src="img/caution.png" alt="주의"/></p>
+					<p>안전한 개인정보 및 사생활 보호를 위한 비밀번호 이렇게 사용해주세요.</p>
+				</h3>
+				<ul>
+					<li> 비밀번호는 문자+숫자의 형태로 사용해주세요.</li>
+					<li> ID 및 이메일 등과 같거나 포함된 비밀번호 사용은 피해주세요.</li>
+					<li> 단일 문자열, 연속 문자열 등 쉬운 비밀번호는 사용하지 마세요.</li>
+					<li> 주민등록번호, 생일, 학번, 전화번호 등 개인정보와 유사하거나 추측이 용이한 비밀번호는 피해주세요.</li>
+					<li> 타 사이트의 비밀번호와 같으면 도용되거나 유출될 위험이 있으니, 주기적으로 변경하여 사용해주세요.</li>
+				</ul>
+			</div>
+		</div>
+
+	
+		<div id="footer">
+			<div id="footerNav">
+				<a href="#" title="#">혈액원 소개</a> <span class="heightLine">|</span>
+				<a href="#" title="#">한마음 혈액원 오시는길</a> <span class="heightLine">|</span>
+				<a href="#" title="#">헌혈 까페</a> <span class="heightLine">|</span>
+				<a href="#" title="#">캐릭터</a> <span class="heightLine">|</span>
+				<a href="#" title="#">개인정보 수집 및 이용에 대한 안내</a> <span class="heightLine">|</span>
+				<a href="#" title="#">이메일 무단 수집 거부</a>
+			</div>
+			<div id="footerMain">
+				<div id="footerLogo">
+					<a href="#" title="#"><img src="img/footerLogo.png" alt="로고"/></a>
+				</div>
+				<div id="footerTextArea">
+					<p>Copyright(c) 2014 대한산업보건협회 부설 <strong>한마음혈액원</strong> All Rights Reserved.<br/>주소. 경기도 과천시 향나무로 4 (과천동 541-2)   전화. 02.586.2415   팩스. 02.582.0524</p>
+					<img src="img/character.png" alt="한마음 혈액원 캐릭터"/>
+				</div>
+				<div id="banner">
+					<a href="#" title="#"><img src="img/helpcall.png" alt="병무청 국방헬프콜"/></a>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

@@ -1,0 +1,709 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+ <head>
+ <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  <title> new document </title>
+
+ <style type="text/css">
+	/*##### 초기값 #####*/
+		*{margin:0; padding:0;}
+		li{list-style-type:none;}
+		a:link, a:visited{text-decoration:none; color:#3B3B3B;}
+		a:hover, a:focus{color:#CC2127;}
+		body,#allWrap,#sns,#nav,#main,#footer{margin:0; padding:0;}
+		img{border:none;}
+	/*##### allWrap #####*/
+		#allWrap{width:1200px; margin: 20px auto; background-color:#FBFBFB; border:1px solid #ccc; overflow:hidden;}
+	/*##### sns #####*/
+		#sns{width:100%; height:40px;}
+		#snsNavBottom{width:100%; height:10px;background-color:#CC2127;position:relative;}
+		#inSnsNavBottom{width:100%; height:10px;}
+		#leftPadding{width:35px; height:30px; position:absolute; left:0 ;top:-30px; background-color:#FBFBFB;}
+		#snsNav{width:100%; height:30px; background-color:#FBFBFB;  margin:0;padding:0; position:relative;}
+		#snsImg{ display:block; width:100%; height:100% ;text-align:center; background-color:#FBFBFB; position:relative; margin:0;padding:0; border:none;}
+		#snsImg li{display:inline-block; height:100%; position:absolute; }	
+	/*-----sns 슬라이딩BAR-----*/	
+		#blog{background-color:#3fa32f; left:-965px; top:0px; width:1050px;  z-index:3;}
+		#face{background-color:#7ea2e0; left:-945px; top:0px;  width:1080px; z-index:2; }
+		#kakao{background-color:#ffea00; left:-895px; top:0px; width:1060px; z-index:1; }
+	/*-----each Text Area-----*/	
+		#blogText{width:1000px; height:30px;float:left;}
+		#blogText p a{display:none;}
+		#faceText,#kakaoText{width:1030px; height:30px;float:left; }
+		#faceText a,#kakaoText a{display:none;}
+	/*-----each Btn-----*/	
+		#kakaoBtn,#faceBtn, #blogBtn{float:left; width:30px; height:30px; cursor:pointer; position:relative;}
+		#kakaoBtn img,#faceBtn img, #blogBtn img{width:30px; display:block; z-index:1;}
+		#blog:after, #face:after, #kakao:after{content:""; display:block; clear:both;}
+	
+		#blogBtn{background-image:url("img/blog1.jpg"); background-repeat:no-repeat; background-size:30px; background-position:center;}
+		#blogBtn a img{position:absolute; left:0; top:0; display:none;}
+		#faceBtn{background-image:url("img/faceBook1.jpg"); background-repeat:no-repeat; background-size:30px; background-position:center;}
+		#faceBtn a img{position:absolute; left:0; top:0; display:none;}
+		#kakaoBtn{background-image:url("img/kakaoStory1.jpg"); background-repeat:no-repeat; background-size:30px; background-position:center;}
+		#kakaoBtn a img{position:absolute; left:0; top:0; display:none;}
+	/*-----each Text Area contents-----*/	
+		/*_____블로그____*/
+			#blogLink{width:800px; height:30px; margin-left: 165px;}
+			#blogLink p{display:block;text-align:center;}
+			#blogP1{width:200px; height:30px; float:left; text-align:center; padding-left:20px;}
+			#blogP1 a img{width:140px; height:30px;}
+			#blogP2{width:580px; height:30px; float:left;}
+			#blogP2 a{display:block; line-height:30px; letter-spacing:2px; color:#fff; font-weight:bold;}
+			#blogP2 a:hover,#blogP2 a:focus{color:#f6f9c9;}
+			#blogP2 a:hover img,#blogP2 a:focus img{display:block;}
+			#blogP2 a span{display:block; float:left; padding-left:15px; }
+			#blogP2span{margin-left:25px; width:110px; height:30px; padding-top:3px; background-image:url("img/blogtext1.png"); background-repeat:no-repeat; background-position:15px 3px;}
+			#blogP2 a img{width:110px; display:none;}
+			#rightPadding1{width:20px; height:30px; background-color:#FBFBFB; float:left;}
+		/*_____페이스북_____*/
+			#faceLink{width:800px; height:30px; margin-left: 115px; float:left;}
+			#faceP1{width:210px; height:30px;float:left; text-align:right; background-image:url("img/facebook1.png"); background-repeat:no-repeat; background-position:95px 0px;
+			background-size:90px 30px;}
+			#faceP1:hover a img{display:block;}
+			#faceP1 a:focus img{display:block;}
+			#faceP1 a img{width:90px; height:30px; margin-left:95.5px; display:none;}
+			#faceP2{width:590px; height:30px;line-height:30px;  text-align:left; letter-spacing:2px; float:left;}
+			#faceP2 a{color:#fff; font-weight:bold;}
+			#faceP2 a:hover,#faceP2 a:focus{color:#8f101c;}
+			#faceP2 a img{height:30px; vertical-align:top; padding-left:20px; }
+			#rightPadding2{width:20px; height:30px; background-color:#FBFBFB; float:right;}
+		/*_____카카오스토리_____*/
+			#kakaoLink{width:800px; height:30px; margin-left:95px; background-color:gold; float:left;}
+			#kakaoP1{width:100px; height:30px;  float:left; text-align:right;}	
+			#kakaoP1 a img{width:30px; height:30px;}
+			#kakaoP2{width:670px; height:30px;float:left; line-height:30px;}
+			#kakaoP2 a{color:#CC2127; font-weight:bold;}
+			#kakaoP2 a:hover,#kakaoP2 a:focus{color:#fff;}
+			#kakaoP2 a span{display:block; height:30px;  float:left; margin-left:25px;}
+			#kakaoP2 a img{ height:30px;}
+			
+			#leftPadding1{width:36px; height:30px; background-color:#FBFBFB; position:absolute; left:0; top:0;z-index:4}	
+	/*##### nav #####*/
+		#nav{width:199px; height:820px; float:left;}
+		#nav h1{width:100%; height:159px; float:left;}
+		#nav h1 img{width:100%; height:100%;}
+	/*----- logWrap -----*/
+		#logWrap {width:100%; height:60px;}
+		#logWrap:after{content:""; display:block; clear:both;}
+		#logWrap a{color:#fff; font-size:0.9em; display:inline-block; width:98px; height:100%; text-align:center; line-height:60px;}
+		#redArea{float:left; border-right:3px solid #fff; background-color:#CC2127;}
+		#redArea:hover,#redArea:focus{background-color:#DC6468; font-size:1em;}
+		#grayArea{ clear:both;  background-color:#5E6263;}
+		#grayArea:hover,#grayArea:focus{background-color:#A3A9AA; font-size:1em;}
+	/*----- mainNav -----*/
+		#mainNav{padding:0 25px; background-color:#FBFBFB; margin-top:5px; margin-bottom:5px;}
+		.navLine{width:100%; border-bottom:1px solid #ccc;}
+		.mainNavBtn{display:inline-block;width:150px; height:55px;line-height:55px;font-weight:bold; font-size:17px;}
+		.mainNavBtn:hover .hoverSelect,.mainNavBtn:focus .hoverSelect{background-color:#e8e8e8; color:#3B3B3B;}
+		.hoverSelect{display:block; width:150px; height:55px; text-indent:10px;}
+		.subNav{padding:10px 0;}
+		.subNav > li{width:100%; height:25px; font-size:14px; text-indent:15px;}
+		.subNav > li a:hover,.subNav > li a:focus{font-weight:bold; font-size:15px;}
+		.leftArrow{font-size:5px;}
+	/*##### topSiteLocation #####*/
+		#topSiteLocation{width:1000px; height:159px; background-image:url("img/topBg.png"); float:left;}
+		#siteLocation{width:725px; height:100%; float:left; position:relative;}
+		#siteLocation > h2{ display:inline-block; position:absolute; left:70px; top:65px; font-size:30px; color:#fff;}
+		#siteLocationNav{width:400px; position:absolute; left:70px; top:40px; padding-left:4px;}
+		#siteLocationNav li{display:inline-block;}
+		#siteLocationNav li a:link,#siteLocationNav li a:visited{font-size:15px; color:white;}
+		#siteLocationNav li a:hover,#siteLocationNav li a:focus{text-decoration:underline;font-weight:bold; font-size:15px;}
+		#siteLocationNav li span{padding-left:7px; text-align:center;}
+
+		#topRightImg{width:275px; height:100%; float:left;}	
+	/*##### quickNav #####*/
+		#quickNav{width:1000px; height:60px; float:left; position:relative;  overflow:hidden;}
+		#quick{width:100px; height:60px; position:absolute; left:0; top:0; text-align:center; background-color:#fbfbfb;z-index:2;cursor:pointer;}
+		#quick > p{display:block; font-size:20px; position:absolute; font-weight:bold; left:22px; top:14px; color:#b6b6b6;}
+		.DC6468{color:#DC6468;}
+		#quick > img{width:80px; margin-top:12px;}
+		#qNav{width:900px; height:60px; position:absolute; left:100px; z-index:1;}
+		#qNav > ul{width:900px; height:20px; margin-top:17px;}
+		#qNav > ul > li{display:inline-block; height:20px; position:relative;}
+		#qNav > ul > li > a:link,#qNav > ul > li > a:visited{font-size:14px; color:#bbb; position:relative;}
+		#qNav > ul > li > a:hover,#qNav > ul > li > a:focus{font-weight:bold; color:#5E6263;}
+		#qNav > ul > li > a:hover > span,#qNav > ul > li > a:focus > span{display:block;}
+		#qNav > ul > li  > a >.navLineBar{width:90%; height:6px; background-color:#5E6263; position:absolute; left:0; top:35px; display:none;}
+		#qNav > ul >  li  > a > .navLineBar2{width:90%; height:6px; background-color:#5E6263; position:absolute; left:0; top:35px;display:none;}
+		#qNav > ul >  li  > a > .navLineBar3{width:100%; height:6px; background-color:#5E6263; position:absolute; left:0; top:35px; display:none;}	
+	/*##### introContentsWrap #####*/ 
+		#jeje{width:1000px;background-color:#fff; position:relative;float:left;padding-top:50px;}
+		#jeje:after{content:""; display:block; clear:both;}
+		
+		/*#vision > h3{color:#CC2127;}
+		border-top:3px dashed #EFEFEF; margin-top:20px;*/
+	/*##### footer #####*/
+		#footer{width:100%; height:200px; border-top:1px solid #ccc; float:left; }
+		#footer:after{content:""; display:block; clear:both;}
+		#footerNav{width:100%; height:40px; font-size:13px; line-height:40px; text-align:center; border-bottom:1px solid #ccc;}
+		#footerNav a:hover,#footerNav a:focus{color:#CC2127; font-weight:bold; text-decoration:underline;}
+		.heightLine{margin:0 8px;}
+	/*----- footerMain -----*/
+		#footerMain{width:100%; height:160px; margin-top:50px;}
+		#footerLogo,#banner{width:15%; float:left; text-align:center;}
+		#footerTextArea{width:70%; height:100%;float:left; color:#3B3B3B; font-size:0.8em; }
+		#footerTextArea p{padding-left:20px; margin-left:100px; display:block;  width:500px; float:left;}
+		#footerTextArea img{width:80px;}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+<script>
+</script>
+<script type="text/javascript">
+		//--------sns main Nav htmlText change---------	
+			function inner(){
+				if ($("#sns").css("display")=="none")
+					{document.getElementById("SnsTopBtns").innerHTML = 'S N S (ON)';}	
+					else if ($("#sns").css("display")!="none"){document.getElementById("SnsTopBtns").innerHTML = 'S N S (OFF)';}
+					}
+	jQuery(document).ready(function(){		
+		//--------sns main Nav---------
+			$("#sns").hide();
+			$("#SnsTopBtn").click(function(){
+			if ($("#sns").css("display")=="none")
+			{$("#sns").slideDown();}	
+			else if ($("#sns").css("display")!="none"){$("#sns").slideUp(); }
+			});
+		//--------snsNav---------
+			$("#blogBtn, #blogBtn a").bind("mouseover focus",function(){
+				$("#bBtn2").css("display","block");
+				$("#snsNavBottom").css("backgroundColor","#28522c")
+			}).bind("mouseout blur",function(){
+				$("#bBtn2").css("display","none");
+				$("#snsNavBottom").css("backgroundColor","#CC2127")
+			}).click(function(){
+				if ($("#blog").css("left")=="-965px")
+				{
+				$("#blogText a").css("display","block");
+				$("#faceText a,#kakaoText a").css("display","none");
+				$("#blog").animate({left: '35px'}, 300);
+				$("#face").animate({left: '55px'}, 300);
+				$("#kakao").animate({left: '105px'}, 300);
+				$("#bBtn1").css("display","block");
+				$("#fBtn1,#kBtn1").css("display","none");
+				$("#rightPadding1").css("backgroundColor","#FBFBFB");
+				$("#rightPadding2").css("backgroundColor","#FBFBFB");
+				$("#inSnsNavBottom").css("backgroundColor","#28522c");
+				}
+				else if($("#blog").css("left")=="35px")
+				{
+				$("#blogText a").css("display","block");
+				$("#faceText a").css("display","block")
+				$("#blog").animate({left: '-965px'}, 300);
+				$("#bBtn1").css("display","none");
+				$("#fBtn1").css("display","block");
+				$("#rightPadding1").css("backgroundColor","#7ea2e0");
+				$("#inSnsNavBottom").css("backgroundColor","#233966");
+				$("#blogBtn").removeClass("back1");
+				}
+			});
+
+			$("#faceBtn, #faceBtn>a").bind("mouseover focus",function(){
+				$("#fBtn2").css("display","block");
+				$("#snsNavBottom").css("backgroundColor","#233966")
+			}).bind("mouseout blur",function(){
+				$("#fBtn2").css("display","none");
+				$("#snsNavBottom").css("backgroundColor","#CC2127")
+			}).click(function(){
+				if ($("#face").css("left")=="-945px")
+				{
+				$("#faceText a").css("display","block");
+				$("#blogBtn p a,#kakaoText a").css("display","none");
+				$("#blog").animate({left: '-965px'}, 300);
+ 				$("#face").animate({left: '55px'}, 300);
+				$("#kakao").animate({left: '105px'}, 300);
+				$("#fBtn1").css("display","block");
+				$("#bBtn1,#kBtn1").css("display","none");
+				$("#rightPadding1").css("backgroundColor","#7ea2e0");
+				$("#rightPadding2").css("backgroundColor","#FBFBFB");
+				$("#inSnsNavBottom").css("backgroundColor","#233966");
+				}
+				else if($("#face").css("left")=="55px")
+				{
+				$("#faceText a, #blogBtn p a").css("display","none");
+				$("#kakaoText a").css("display","block");
+				$("#blog").animate({left: '-965px'}, 300);
+				$("#face").animate({left: '-945px'}, 300);				
+				$("#bBtn1,#fBtn1").css("display","none");
+				$("#kBtn1").css("display","block");
+				$("#rightPadding1").css("backgroundColor","#FBFBFB");
+				$("#rightPadding2").css("backgroundColor","#ffea00");
+				$("#inSnsNavBottom").css("backgroundColor","#e46340");				
+				}
+			});
+			
+			$("#kakaoBtn, #kakaoBtn > a").bind("mouseover focus",function(){
+				$("#kBtn2").css("display","block");
+				$("#snsNavBottom").css("backgroundColor","#e46340")
+			}).bind("mouseout blur",function(){
+				$("#kBtn2").css("display","none");
+				$("#snsNavBottom").css("backgroundColor","#CC2127")
+			}).click(function(){
+				if ($("#kakao").css("left")=="-895px")
+				{
+				$("#kakaoText a").css("display","block");
+				$("#blogText a,#faceText a").css("display","none");
+				$("#blog").animate({left: '-965px'}, 300);
+ 				$("#face").animate({left: '-945px'}, 300);
+				$("#kakao").animate({left: '105px'}, 300);
+				$("#kBtn1").css("display","block");
+				$("#bBtn1, fBtn1").css("display","none");
+				$("#rightPadding2").css("backgroundColor","#ffea00");
+				$("#inSnsNavBottom").css("backgroundColor","#e46340");
+				}
+				else if($("#kakao").css("left")=="105px")
+				{
+				$("#kakaoText a,#blogText a,#faceText a").css("display","none");
+				$("#blog").animate({left: '-965px'}, 300);
+ 				$("#face").animate({left: '-945px'}, 300);
+				$("#kakao").animate({left: '-895px'}, 300);
+				$("#bBtn1,#fBtn1,#kBtn1").css("display","none");
+				$("#rightPadding1").css("backgroundColor","#FBFBFB");
+				$("#rightPadding2").css("backgroundColor","#FBFBFB");
+				$("#inSnsNavBottom").css("backgroundColor","");
+				}
+			});
+		//--------logoBtnHover---------
+			$("#nav > h1 > a").bind("mouseover focus",function(){
+				$(this).children("img").attr("src","img/logo2.png");
+				}).bind("mouseout blur",function(){
+				$(this).children("img").attr("src","img/logo.png");
+			});
+		//--------mainNav---------		
+			$(".subNav").hide();
+			$(".navLine > a").click(function(){	
+			$(".mainNavBtn").css({"backgroundColor":"#FBFBFB","color":"#3B3B3B"});
+				if ($(this).next(".subNav").css("display") == "none")
+				{
+					$(".subNav").stop().slideUp(300);
+					$(this).next(".subNav").stop().slideDown(300);
+					$(this).css({"backgroundColor":"#e8e8e8","color":"#3B3B3B"});
+					$(".subNav  > li > a").click(function(){
+						$(this).parents(".navLine").children("a").css({"backgroundColor":"#e8e8e8","color":"#3B3B3B"});
+					});
+				}
+				else{
+				$(this).next(".subNav").stop().slideUp(300);
+				}
+			$(this).css({"color":"#3B3B3B"});			
+			});
+		//--------QuickNav---------
+			$("#quick > p").click(function(){
+				if ($("#qNav").css("left")=="100px"){
+					$("#qNav").animate({left: '-1000px'}, 500);
+					$("#quick > img").attr("src","img/quick2.png");
+					$("#quick > p").css("color","#DC6468");}
+				
+				else if ($("#qNav").css("left")!="100px")
+				{$("#qNav").animate({left: '100px'}, 500);
+					$("#quick > img").attr("src","img/quick.png");
+					$("#quick > p").css("color","#b6b6b6");}
+			}).bind("mouseover focus",function(){
+				$("#quick > img").attr("src","img/quick2.png");
+					$("#quick > p").css("color","#DC6468");
+			}).bind("mouseout blur",function(){
+				$("#quick > img").attr("src","img/quick.png");
+					$("#quick > p").css("color","#b6b6b6");
+			});
+		//--------intro 페이지 초기값---------
+			$(".navLine:last > ul").show();
+			$(".navLine:last > a").css({"backgroundColor":"#e8e8e8","color":"#3B3B3B"});
+			$(".navLine:last > ul > li:first > a").css({"color":"#CC2127","fontSize":"15px","fontWeight":"bold"});	
+	});
+</script>
+ </head>
+
+ <body>
+	<div id="allWrap">
+		<div id="sns">
+			<div id="snsNav">
+				<ul id="snsImg">
+					<li id="blog">
+						<div id="blogText">
+							<div id="blogLink">
+								<p id="blogP1">
+									<a href="#" title="블로그 링크1"><img src="img/blog1.png" alt="블로그 바로가기"/> </a>
+								</p>
+								<p id="blogP2">
+									<a href="#" title="블로그 링크2"><span>" 대한 적십자사 혈액 관리본부 공식 블로그 "</span><span id="blogP2span"><img src="img/blogtext2.png" alt="블로그 바로가기"/> </span></a>
+								</p>
+							</div>
+						</div>
+						<div id="blogBtn">
+							<a href="#" title="#"><img id="bBtn1" src="img/blog.png" alt="블로그"/><img id="bBtn2" src="img/blog0.png" alt="블로그"/></a>
+						</div>
+						<div id="rightPadding1">
+						</div>
+					</li>
+					<li id="face">
+						<div id="faceText">
+							<div id="faceLink">
+								<p id="faceP1">
+									<a href="#" title="페이스북 링크1"><img src="img/facebook2.png" alt="페이스북 바로가기"/> </a>
+								</p>
+								<p id="faceP2">
+									<a href="#" title="페이스북 2"><span> "좋아요4만 (헌혈) 대한적십자사 혈액관리본부 공식 페이스북 " <img src="img/facebook3.png" alt="페이스북 바로가기"/> </span></a>
+								</p>
+							</div>
+						</div>
+						<div id="faceBtn">
+							<a href="#" title="#"><img id="fBtn1" src="img/faceBook.png" alt="페이스북"/><img id="fBtn2" src="img/faceBook0.png" alt="페이스북"/></a>
+						</div>
+						<div id="rightPadding2">
+						</div>
+					</li>
+					<li id="kakao">
+						<div id="kakaoText">
+							<div id="kakaoLink">
+								<p id="kakaoP1">
+										<a href="#" title="카카오스토리 링크1"><img src="img/kakaoStory1.png" alt="카카오스토리 바로가기"/> </a>
+								</p>
+								<p id="kakaoP2">
+										<a href="#" title="카카오스토리 링크 2"><span>" 헌혈로 소통하고, 나를 채우는 혈액 관리본부 공식 스토리 " </span><span id="kakaoP2span"><img src="img/kakaostory2.png" alt="카카오스토리 바로가기"/> </span></a>
+								</p>
+							</div>					
+						</div>
+						<div id="kakaoBtn">
+							<a href="#" title="#"><img id="kBtn1" src="img/kakaoStory.png" alt="카카오스토리"/>
+							<img id="kBtn2" src="img/kakaoStory0.png" alt="카카오스토리"/></a>
+						</div>
+					</li>
+				</ul>
+				<div id="leftPadding1">
+				</div>
+			</div>
+			<div id="snsNavBottom">
+			<div id="leftPadding"></div>
+			<div id="inSnsNavBottom"></div>
+			</div>
+		</div>
+		<div id="nav">
+			<h1><a href="index.html" title="메인페이지 바로가기"><img src="img/logo.png" alt="한마음 혈액원 로고"/></a></h1>
+			<div id="logWrap">
+				<a href="#" title="#" id="redArea">로그인</a>
+				<a href="#" title="#"  id="grayArea">회원가입</a>
+			</div>
+			<ul id="mainNav">
+				<li class="navLine" id="SnsTopBtn" onclick="inner();">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect" id="SnsTopBtns">S N S</span></a>
+				</li>
+				<li class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">한마음 지식</span></a>
+					<ul class="subNav">
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈이란?</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 혈액검사 안내</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 혈액 제제</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 혈액 공급</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 유의 사항</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈 실적</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 자 료 실</span></a></li>
+					</ul>
+				</li>
+				<li  class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">헌혈 참여</span></a>
+					<ul class="subNav">
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈 예약</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 전자 문진</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 단체 헌혈</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 자원 봉사</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 자진 배제</span></a></li>
+					</ul>
+				</li>
+				<li class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">한마음 활동</span></a>
+					<ul class="subNav">
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 등록 헌혈제</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈 서포터즈</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 기부권</span></a></li>
+					</ul>
+				</li>
+				<li class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">한마음 게시판</span></a>
+					<ul class="subNav">
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈자 소리</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 자주 묻는 질문</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 우리들 이야기</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 나의 헌혈 수기</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 칭찬해요</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 설문조사 보기</span></a></li>
+					</ul>
+				</li>
+				<li class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">소식 &amp; 이벤트</span></a>
+					<ul class="subNav">
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈이란?</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 혈액검사 안내</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 혈액 제제</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 혈액 공급</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 유의 사항</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈 실적</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 자 료 실</span></a></li>
+					</ul>
+				</li>
+				<li class="navLine">
+					<a href="#" title="#" class="mainNavBtn"><span class="hoverSelect">한마음 알림이</span></a>
+					<ul class="subNav">
+						<li><a href="intro2.html" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 혈액원 소개</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈 천사들</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 홍보 대사</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 헌혈 까페</span></a></li>
+						<li><a href="#" title="#"><span class="leftArrow">&gt;</span><span class="subNavBtn"> 동 영 상</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="topSiteLocation">
+			<div id="siteLocation">
+				<ul  id="siteLocationNav">
+					<li><a href="#" title="#"><img src="img/home.png" alt="home"/></a><span><img src="img/arrow.png" alt="우측방향 화살표"/></span></li>
+					<li><a href="#" title="#">한마음지식</a><span><img src="img/arrow.png" alt="우측방향 화살표"/></span></li>
+					<li><a href="#" title="#">혈액제제</a><span><img src="img/arrow.png" alt="우측방향 화살표"/></span></li>	
+				</ul>
+				<h2>인사말</h2>
+			</div>
+			<div id="topRightImg">
+				<img src="img/jejeTopRight.png" alt="의사와 간호사"/>
+			</div>
+		</div>
+		<div id="quickNav">
+			<div id="quick">
+				<p>Quick</p>
+				<img src="img/quick.png" alt="퀵메뉴"/>
+			</div>
+			<div id="qNav">
+				<ul>
+					<li><a href="#" title="#">질문과답변&nbsp;</span><span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></li>
+					<li><a href="#" title="#">헌혈&nbsp;<span class="navLineBar2"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">나의헌혈정보&nbsp;<span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">이벤트&nbsp;<span class="navLineBar2"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">기부권&nbsp;<span class="navLineBar2"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">헌혈카페&nbsp;<span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">등록헌혈제안내&nbsp;<span class="navLineBar3"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">헌혈서포터즈&nbsp;<span class="navLineBar3"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">자원봉사&nbsp;<span class="navLineBar"></span></a><span><img src="img/disc.png" alt="원"/></span></li>
+					<li><a href="#" title="#">자진배제, 혈액사용 보류신청&nbsp;<span class="navLineBar3"></a></span></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="jeje">
+			<div id="jejeHeader">
+				<h4>전혈을 이용하여 아래 그림과 같이 여러가지의 혈액성분제제를 제조할 수 있습니다.</h4>
+				<p><img src="img/medicine1.png" alt="전혈 관계도"/></p>
+				<p>
+				 환자에게 주로 사용하는 대표적인 혈액성분제제는 농축적혈구와 농축혈소판, 그리고 신선동결혈장이 있습니다. 적혈구, 혈소판, 그리고 혈장은 각기 다른 비중(각각 1.08-1.09, 1.03-1.04, 그리고 1.023)을 갖고 있기 때문에 원심분리를 이용하여 각 성분을 분리할 수 있습니다.
+				</p>
+				<p>
+				 국내 성분헌혈은 혈소판 성분헌혈과 혈장성분헌혈만을 시행하고 있으나, 적혈구 성분헌혈도 기술적으로는 가능은 합니다. 성분헌혈은 특수하게 제작된 전용장비와 kit를 사용해야 하며, 원심분리로 원하는 성분을 분리한 후에 나머지 성분은 헌혈자에게 돌려주게 됩니다. 성분헌혈에 의한 혈소판제제만이 환자 수혈용으로 사용되며, 혈장제제는 알부민, 혈장단백제제, 면역글로불린 제조용으로 쓰이고 있습니다.
+				</p>
+			</div>
+			<div>
+				<h3>전혈</h3>
+				<ul class="blackDot">
+					<li>
+						<h4>전혈이란?</h4>
+						<p>
+							A-1이라 부르는 항응고보존제가 혈액 100ml당 14ml의 비율로 들어가도록 고안된 혈액백에 헌혈자로부터 채혈한 혈액을 320 또는 400ml를 채워 냉장보존한 것입니다. 헤마토크리트는 36~40% 정도이며 채혈 후 24시간이 지나면 혈소판과 불안정 응고인자인 factor V와 VIII의 활성은 사라지고, 미세응괴(microaggregates)가 생길 수 있으며 혈액내의 2,3-bisphophoglycerate의 점진적인 소실로 인해 헤모글로빈의 산소해리가 원활하지 않게 됩니다. 전혈은 반드시 1~6℃에서 보존해야 하며, 보존기간은 35일입니다.
+						</p>
+					</li>
+					<li>
+						<h4>적응증</h4>
+						<p>
+							심한 출혈이 있어 총 혈액량의 25% 이상이 소실되어 쇼크에 빠질 우려가 있는 환자에게는 전혈을 수혈하는 것이 좋습니다. 산소 운반능과 혈액량 확장이 동시에 요구될 때에만 사용하는 것이 권장되며, 혈액량의 소실이 없는 만성빈혈 환자에게 빠르게 수혈하면 혈액량이 초과되어 폐부종 등을 유발할 수 있으므로 주의해야 합니다. 성인의 경우 전혈 1단위를 수혈하면 혈색소치가 약 1 g/dL 증가하고, 헤마토크리트는 3~4% 가량 증가합니다. 소아의 경우에는 3 ml/kg의 농축적혈구를 수혈해야 성인과 같은 혈색소치의 증가를 얻을 수 있습니다. 전혈은 신생아 용혈성 질환의 치료를 위한 교환수혈에도 사용됩니다.
+						</p>
+					</li>
+				</ul>
+
+				<h3>적혈구제제</h3>
+				<p>
+					적혈구제제에는 기본적으로 농축적혈구와 농축적혈구를 멸균생리식염수로 세척한 세척적혈구를 비롯하여 감마선를 조사하거나 백혈구를 제거하여 만드는 기타의 제제로 구분할 수 있습니다.
+				</p>
+				<ul class="orangeDot">
+					<li>
+						<h4>농축적혈구</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>농축적혈구란?</h4>
+								<p>
+									전혈에서 160~200 ml의 혈장과 혈소판을 제거하여 만들어지며, 용량은 200~250 ml 정도이고 헤마토크리트는 65~75%, 백혈구는 400 ml 전혈유래인 경우 2.1×109 개 정도 들어있습니다. 전혈과 동량의 적혈구를 함유하기 때문에 전혈과 동등한 산소 운반능을 가지고 있습니다. 농축적혈구는 1~6℃에 보존해야하며, 보존기간은 전혈과 같은 35일입니다.
+								</p>
+							</li>
+							<li>
+								<h4>적응중</h4>
+								<p>
+									농축적혈구는 산소 운반능의 부족 증상을 보이는 만성빈혈 환자나 수술 또는 외상에 의해 총 혈액량의 15% 이상의 실혈이 있는 환자에게 수혈합니다.
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4>세척적혈구</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>세척적혈구란?</h4>
+								<p>
+									멸균생리식염수를 이용하여 농축적혈구를 세척하고, 부유시킨 혈액제제입니다. 세척과정에서 대부분의 혈장이 제거되고, 백혈구, 혈소판, 세포찌꺼기도 제거되지만, 림프구는 살아있기 때문에 이식편대숙주병이 생길 수 있습니다. 세척 후에는 세균오염의 가능성 때문에 24시간이내에 수혈되어야 합니다.
+								</p>
+							</li>
+							<li>
+								<h4>적응증</h4>
+								<p>
+									세척적혈구는 전혈이나 농축적혈구를 수혈받고 심한 알레르기성 반응을 보인 환자나 신생아, 자궁 내 태아 수혈시에 주로 사용됩니다.
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4>세백혈구제거적혈구</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>백혈구제거적혈구란?</h4>
+								<p>
+									농축적혈구로부터 백혈구 성분만을 제거하여, 백혈구수는 5.0×106개 미만이고, 적혈구는 본래의 85% 이상 함유된 혈액성분제제입니다. 백혈구는 발열성 수혈부작용을 일으키고, cytomegalovirus (CMV) 등의 바이러스 운반체로 작용하여 면역기능이 저하된 환자에게 바이러스 감염을 유발할 수 있으며, HLA 등의 백혈구 항원에 의해 동종면역을 유발하여 혈소판 수혈 불응증(platelet refractoriness)를 일으킬 수 있습니다. 여러 가지 방법으로 백혈구를 제거할 수 있지만, 가장 널리 쓰이는 것은 여과법으로 백혈구 제거 필터를 사용하여 99.9% 이상의 백혈구를 제거합니다.
+								</p>
+							</li>
+							<li>
+								<h4>적응증</h4>
+								<p>
+									장기이식 환자와 같이 면역억제제를 투여하거나 1세 이하의 영유아나 자궁내태아수혈 또는 항암제 치료를 받아 면역기능이 저하된 환자들에게 수혈할 때 CMV 등 바이러스 감염의 예방을 위해 사용합니다.
+								</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h3>혈소판제제</h3>
+				<p>
+					혈소판제제에는 전혈로부터 제조하는 농축혈소판과 헌혈단계에서부터 혈소판성분만을 채혈하여 만들어지는 성분채집혈소판이 있습니다.
+				</p>
+				<ul class="orangeDot">
+					<li>
+						<h4>농축혈소판</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>농축혈소판이란?</h4>
+								<p>
+									농축혈소판은 신선한 전혈로부터 제조되어지는 혈액성분제제로, 40~50 ml의 혈장 속에 평균 6.0×1010개의 혈소판이 들어있습니다. 농축혈소판은 20~24℃의 온도에서 지속적으로 천천히 혼합시키는 경우 120시간 보존할 수 있습니다. 혈소판은 온도와 pH에 매우 민감하여 조건이 맞지 않을 경우 활성화가 일어나 혈소판 본래의 기능을 잃어버리거나, 사멸하므로 보존 조건을 잘 유지해야 합니다. 이를 위해 사용되는 보존기는 온도유지와 혼합기능이 우수해야하며 수평형 보존기가 가장 많이 쓰이고 있습니다. 이러한 보존기를 사용할 수 없는 경우, 예를 들어 운송 중에는 혼합정지시간이 24시간 이상 넘지 않도록 해야 합니다.
+								</p>
+							</li>
+							<li>
+								<h4>적응중</h4>
+								<p>
+									혈소판이 감소된 환자의 출혈을 예방하거나 치료하는데 사용됩니다. 출혈이 현재 없는 경우에는 혈소판수가 20,000/㎕ 이하인 경우에 사용되고, 출혈이 예상되는 경우, 예를 들어 수술이나 침습적인 시술을 앞두고 있는 경우에는 혈소판수가 50,000/㎕ 이하인 경우에 사용됩니다.
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4>성분채혈 혈소판</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>성분채혈 혈소판이란?</h4>
+								<p>
+									성분채집혈소판은 한 명의 헌혈자로부터 혈소판성분채집술을 이용하여 만들어지는 혈액성분제제로, 헌혈자가 가진 혈소판의 약 30%를 채집하여 한 단위를 만드는데 여기에는 약 3.6×1011개의 혈소판이 들어있게 됩니다. 이것은 전혈로 제조하는 농축혈소판 약 6단위에 해당하는 양이며, 혈장 200~250ml 정도에 부유되어 있습니다.
+								</p>
+							</li>
+							<li>
+								<h4>적응증</h4>
+								<p>
+									농축혈소판과 같습니다.
+								</p>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h3>혈장제제</h3>
+				<ul class="orangeDot">
+					<li>
+						<h4>신선동결혈장</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>신선동결혈장이란?</h4>
+								<p>
+									혈장은 단백질 7%, 탄수화물 2%, 소량의 지방질과 나머지 99%는 수분으로 이루어져 있습니다. 신선동결혈장은 채혈 후 4시간 이내의 전혈로부터 혈장을 분리하여 동결시킨 것으로 -18℃이하에서 1년간 보존할 수 있습니다. 400ml 전혈유래인 경우의 용량은 평균 167ml이며, 사용 전 급속 해동을 시행해야 하며, 해동 후 혈액응고인자 활성의 감소를 막기 위하여 가능한 4시간 이내에 수혈하는 것이 좋으며, 늦어도 24시간 이내에 사용해야 합니다.
+								</p>
+							</li>
+							<li>
+								<h4>적응중</h4>
+								<ul class="listNum">
+									<li>파종성혈관내응고증</li>
+									<li>중증 간질환</li>
+									<li>쿠마딘계 항응고제 사용시의 출혈</li>
+									<li>선천성 응고인자 결핍증, 유전성 응고억제제 결핍증</li>
+									<li>대량출혈(수술, 분만, 중증 외상)이나 대량수혈에 의한 희석성 응고장애</li>
+									<li>혈전성혈소판감소성자반증, 용혈성요독성증후군</li>
+									<li>PT, aPTT 혹은 섬유소원 측정 결과 정상보다 30~50% 이상의 검사이상이 확인된 경우</li>
+									<li>비타민 K 결핍증</li>
+									<li>출혈량을 예측할 수 없는 출혈로서 응급으로 혈액응고 검사를 시행할 수 없는 경우</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4>동결침전제제</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>동결침전제제란?</h4>
+								<p>
+									동결침전제제는 신선동결혈장 1단위를 4℃에 녹여서 제조합니다. 녹인 후 생기는 흰색의 침전물을 얻기위해 원심분리후 상층혈장을 제거하고, 이것을 다시 -18℃이하에서 동결시키면 동결침전제제가 되며, 보존기간은 1년입니다. 상층혈장을 -18℃이하에서 동결시킨 것은 액상혈장이 되며, 안정 혈액응고인자의 공급원으로 사용되거나, 혈장교환술 시에 신선동결혈장 대신 사용되기도 합니다. 동결침전제제 한 단위의 용량은 40ml 정도이며, 여기에는 factor VIII:C가 80~100단위, 섬유소원이 평균 250mg, 그리고 제XIII인자와 폰빌레브란드 인자가 각각 신선동결혈장에 함유되었던 양의 20~30%와 40~70% 정도가 들어 있습니다.
+								</p>
+							</li>
+							<li>
+								<h4>적응증</h4>
+								<p>
+									A형 혈우병, 폰빌레브란드병, 선천성 혹은 후천성 섬유소원 결핍증, 제XIII인자 결핍증, 그리고 산과적 합병증 또는 파종성혈관내응고증 등 섬유소원의 소모와 관계된 질환에 사용됩니다.
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<h4>혈장분획제제</h4>
+						<ul class="blackDot">
+							<li>
+								<h4>혈장분획제제란?</h4>
+								<p>
+									혈장중에 미량 존재하는 성분을 대량의 혈장으로부터 추출하여 농축시킨 것을 혈장분획제제라고 합니다. 혈장성분헌혈에 의해 얻어진 원료혈장을 이용하며, 연간 약 70만 리터의 혈장 중에 50만 리터는 국내 헌혈에 의해 충당하고, 나머지는 수입에 의존하고 있습니다. 혈장으로부터 만들어지는 제제는 다음과 같습니다.
+								</p>
+								<ul class="listNum">
+									<li>농축제VIII인자</li>
+									<li>농축제IX인자</li>
+									<li>항억제인자 응고복합체</li>
+									<li>알부민 및 혈장단백분획</li>
+									<li>면역글로불린</li>
+									<li>Rh면역글로불린</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+		
+		<div id="footer">
+			<div id="footerNav">
+				<a href="#" title="#">혈액원 소개</a> <span class="heightLine">|</span>
+				<a href="#" title="#">한마음 혈액원 오시는길</a> <span class="heightLine">|</span>
+				<a href="#" title="#">헌혈 까페</a> <span class="heightLine">|</span>
+				<a href="#" title="#">캐릭터</a> <span class="heightLine">|</span>
+				<a href="#" title="#">개인정보 수집 및 이용에 대한 안내</a> <span class="heightLine">|</span>
+				<a href="#" title="#">이메일 무단 수집 거부</a>
+			</div>
+			<div id="footerMain">
+				<div id="footerLogo">
+					<a href="#" title="#"><img src="img/footerLogo.png" alt="로고"/></a>
+				</div>
+				<div id="footerTextArea">
+					<p>Copyright(c) 2014 대한산업보건협회 부설 <strong>한마음혈액원</strong> All Rights Reserved.<br/>주소. 경기도 과천시 향나무로 4 (과천동 541-2)   전화. 02.586.2415   팩스. 02.582.0524</p>
+					<img src="img/character.png" alt="한마음 혈액원 캐릭터"/>
+				</div>
+				<div id="banner">
+					<a href="#" title="#"><img src="img/helpcall.png" alt="병무청 국방헬프콜"/></a>
+				</div>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>
